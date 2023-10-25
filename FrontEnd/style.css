@@ -1,0 +1,57 @@
+
+.top{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex: 1;
+}
+#left{
+    flex:1;
+    margin:20px;
+    height: 100%;
+    overflow: auto;
+}
+#right{
+    flex: 1;
+}
+#image{
+    width: 500px;
+    height: 500px;
+    background-color: red;
+    border:5px solid;
+    border-color: black;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+.element{
+    border-color: black;
+    border: 2px solid;
+    margin: 20px 0px;
+    padding: 20px;
+}
+.element:hover{
+    background-color: aqua;
+}
+#btns{
+    display: flex;
+    flex:1;
+    justify-content: center;
+}
+button{
+    margin: 10px;
+    padding: 20px;   
+}
+button:hover{
+    background-color:aqua ;
+}
+#TempText{
+    text-align: center;
+    margin-top: auto;
+    margin-bottom: auto;
+    font-size: xx-large;
+}
+#CurrentEleHead{
+    display: flex;
+    justify-content: space-between;
+}
