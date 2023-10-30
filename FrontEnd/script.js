@@ -99,11 +99,13 @@ async function fetch_List(){
     )
     return list
 }
-function setElement(i,status,key){
-    if(status)
-        list[i].status=status;
-    if(key)
-        list[i].key=key;
+async function setElement(i,status,key){
+    await CallApi(url+"/update_image_info","POST",{
+        "key":key,
+        "status":status
+    }).then((data)=>{
+        console.log(data)
+    })
 }
 function getElement(i){
     return list[i];

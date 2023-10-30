@@ -1,6 +1,5 @@
 import os
 import cv2
-from cv2 import data as cv2_data
 
 
 class Face_coordinates:
@@ -10,14 +9,27 @@ class Face_coordinates:
         self.width:int = width
         self.height:int= height
 
-def getFaceCordinateFromImage(image_url:str)->Face_coordinates:
+def getFaceCordinateFromImage(image_url: str) -> Face_coordinates:
+    # Load the Haar Cascade classifier for face detection
     face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
-    image = cv2.imread(image_url)
+    
+    # Read the image using the headless version of OpenCV
+    image = cv2.imread(image_url, cv2.IMREAD_COLOR)
+    
+    # Convert the image to grayscale
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+    
+    # Detect faces in the image
     faces = face_cascade.detectMultiScale(gray, scaleFactor=1.3, minNeighbors=5)
-    print("faces",faces,image_url)
-    face_cor = Face_coordinates(int(faces[0][0]), int(faces[0][1]), int(faces[0][2]), int(faces[0][3]))
-    # return face_cor
+    
+    if len(faces) == 0:
+        # No faces detected in the image
+        return Face_coordinates(0, 0, 0, 0)
+    
+    # Extract the coordinates of the first detected face
+    x, y, w, h = faces[0]
+    
+    face_cor = Face_coordinates(int(x), int(y), int(w), int(h))
     return face_cor
     
 def getListOfAllImages():
