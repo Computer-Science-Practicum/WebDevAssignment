@@ -55,7 +55,7 @@ button:hover{
 }
 #CurrentEleHead{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
 }
 .status_Criminal{
     background-color: red;

@@ -14,7 +14,7 @@ window.onload = async () => {
             console.log(event.target.innerHTML)
             await setElement(current, event.target.innerHTML);
             // list[current].status=event.target.innerHTML;
-            document.getElementById("currentEleS").innerHTML = event.target.innerHTML
+            document.getElementById("currentEleS").innerHTML = event.target.innerHTML+getElement(current).x
             status_class = map_status_to_class(event.target.innerHTML);
             console.log("stus", status_class)
 
@@ -61,7 +61,7 @@ function hasClass(element, className) {
 function setFace(face) {
     current = face.id
     document.getElementById("currentEleH").innerHTML = face.id
-    document.getElementById("currentEleS").innerHTML = face.status
+    document.getElementById("currentEleS").innerHTML = face.status+" "+ xywh(face.x, face.y, face.w, face.h)
     addFrameToImage(staticURL + face.url, face.x, face.y, face.w, face.h)
 }
 
@@ -112,6 +112,9 @@ async function CallApi(url, method, data) {
     return result
 }
 
+function xywh(x, y, w, h) {
+    return `x:${x},y:${y},w:${w},h:${h}`
+}
 
 list = []
 async function fetch_List() {
