@@ -17,21 +17,23 @@
 #image{
     width: 500px;
     height: 500px;
-    background-color: red;
+    background-color: black;
     border:5px solid;
     border-color: black;
     margin: auto;
     display: flex;
     justify-content: center;
+    overflow: hidden;
 }
 .element{
     border-color: black;
     border: 2px solid;
     margin: 20px 0px;
     padding: 20px;
+
 }
 .element:hover{
-    background-color: aqua;
+    border-color: aqua;
 }
 #btns{
     display: flex;
@@ -54,4 +56,23 @@ button:hover{
 #CurrentEleHead{
     display: flex;
     justify-content: space-between;
+}
+.status_Criminal{
+    background-color: red;
+}
+.status_NonCriminal{
+    background-color: green;
+}
+.status_Junk{
+    background-color: grey;
+}
+#notify{
+    position: absolute;
+    display: none;
+    top: 0;
+    right: 0;
+    margin: 10px;
+    padding: 10px;
+    background-color: blue;
+    color: white;
 }
